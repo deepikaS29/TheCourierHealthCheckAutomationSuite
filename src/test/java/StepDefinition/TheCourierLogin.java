@@ -99,6 +99,19 @@ public class TheCourierLogin extends CommonLibrary {
         }
     }
 
+    @Then("Verify the user is not logged out")
+    public void verify_user_not_loggedout(){
+        // boolean MyAccount = driver.findElement(By.xpath("/html/body/header/div[1]/div[2]/div[2]/a")).isDisplayed();
+        boolean MyAccount=loginPage.verifyMyAccount_lnk();
+        Assert.assertTrue("My account link is not displayed",MyAccount);
+        if (MyAccount) {
+            System.out.println("User account is open");
+        } else {
+            System.out.println("Account not created");
+
+        }
+    }
+
 
 }
 

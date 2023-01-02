@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="72.689">
-    <testcase classname="Test the horizontal&amp;Vertical scrollers" name="Verify the scrollers position." time="72.498">
-        <system-out><![CDATA[And User click the i accept button..........................................passed
-When Click on any article on home page......................................passed
-Then verify the scrollers are present under conversation section............passed
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="44.413">
+    <testcase classname="Product Login/Cookie validations" name="New Account login with Partial cookies" time="44.213">
+        <system-out><![CDATA[When User click the on manage cookies.......................................passed
+When User hit the login link................................................passed
+Then Login page is open.....................................................passed
+And Clear cookies for the site..............................................passed
+Given Enter registered email id "dee2w44w24@gmail.com"......................passed
+And Enter valid password "Asc@5672334"......................................passed
+When User click on login button.............................................passed
+And User click the on manage cookies........................................passed
+Then User should navigates to The courier home page.........................passed
+And Login Replaced with My Account link.....................................passed
+When Click on multiple article on home page.................................passed
+Then Verify the user is not logged out......................................passed
 ]]></system-out>
     </testcase>
 </testsuite>

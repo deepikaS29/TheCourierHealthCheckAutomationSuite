@@ -15,6 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -51,16 +52,19 @@ public class Scrollers extends CommonLibrary {
     }
 
 
+
+
+
     @Then("verify the below horizontal scrollers present in the page after selecting article")
     public void verifyhorizontalscrollers(DataTable table) throws  Exception{
         boolean flg=false;
         for(Map<Object, Object> data:table.asMaps(String.class,String.class)) {
             String scrollers = (String) data.get("HorizontalScrollers");
             try{
-                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//h3[contains(text(),'"+scrollers+"')])[1]")));
-                boolean b=driver.findElement(By.xpath("(//h3[contains(text(),'"+scrollers+"')])[1]")).isDisplayed();
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//h3[text()='"+scrollers+"'])[1]")));
+                boolean b=driver.findElement(By.xpath("(//h3[text(),'"+scrollers+"'])[1]")).isDisplayed();
                 JavascriptExecutor js=(JavascriptExecutor)driver;
-                js.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(By.xpath("(//h3[contains(text(),'"+scrollers+"')])[1]")));
+                js.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(By.xpath("(//h3[text(),'"+scrollers+"'])[1]")));
                 flg=true;
             }catch(Exception e){
                 e.printStackTrace();
@@ -105,6 +109,45 @@ public class Scrollers extends CommonLibrary {
             }
             Assert.assertTrue(scrollers+" scroller is not displayed under Conversation",flg);
         }
+    }
+
+
+    @Then("Verify there is no duplicate article in More from Category and More from Page scrollers")
+    public void verifyNoDuplicationArticle() throws  Exception{
+        List<String> morefromlist=new ArrayList<String>();
+        JavascriptExecutor js=(JavascriptExecutor)driver;
+        js.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(By.xpath("(//*[contains(text(),'More from')])[1]")));
+        List<WebElement> elms=driver.findElements(By.xpath("//h5[@class='hs-title title--sm']//a[@data-track-id='more from']"));
+        System.out.println("*****More from category *****");
+        for(WebElement elm:elms){
+            String txt=elm.getText();
+            if(txt==""){
+                driver.findElement(By.xpath("(//button[@aria-label='Next'])[1]")).click();
+                Thread.sleep(2000);
+                txt=elm.getText();
+            }
+            morefromlist.add(txt);
+            System.out.println(txt);
+        }
+
+        List<String> morefromcourierlist=new ArrayList<String>();
+        js.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(By.xpath("(//*[contains(text(),'More from')])[2]")));
+        List<WebElement> elms1=driver.findElements(By.xpath("//h5[@class='hs-title title--sm']//a[@data-track-id='latest headlines']"));
+        System.out.println("*****More from the page*****");
+        for(WebElement elm:elms1){
+            String txt=elm.getText();
+            if(txt==""){
+                driver.findElement(By.xpath("(//button[@aria-label='Next'])[3]")).click();
+                Thread.sleep(2000);
+                txt=elm.getText();
+            }
+            morefromcourierlist.add(txt);
+
+            System.out.println(txt);
+        }
+
+        boolean b=morefromlist.equals(morefromcourierlist);
+        Assert.assertFalse("Duplicate articles are appearing ",b);
     }
 
 

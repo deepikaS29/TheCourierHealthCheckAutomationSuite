@@ -22,6 +22,13 @@ public class TheCourierRegisterUSer extends CommonLibrary {
         registrationPage.click_register_link();
     }
 
+    @And("Clear cookies for the site")
+    public void clear_cookies() {
+        driver.manage().deleteAllCookies();
+    }
+
+
+
     @Then("Register page is open")
     public void register_page_is_open() {
         boolean IsDisplayed=registrationPage.verifyRegister_header();
@@ -70,7 +77,7 @@ public class TheCourierRegisterUSer extends CommonLibrary {
     @Then("User should navigates to The courier home page")
     public void user_should_navigates_to_the_courier_home_page() {
         //String expectedURL = "https://www.thecourier.co.uk/login/";
-        String expectedURL =properties.getProperty("loginURL");
+        String expectedURL =properties.getProperty("homepageURL");
         String actualURl = driver.getCurrentUrl();
         Assert.assertEquals(expectedURL, actualURl);
         System.out.println("Home Page");
