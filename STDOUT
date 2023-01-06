@@ -1,14 +1,34 @@
 
-Scenario Outline: New Account login with Partial cookies [90m# src/test/feature/Product_Login_newuser_cookie.feature:90[0m
-  [32mWhen [0m[32mUser click the on manage cookies[0m                  [90m# StepDefinition.Product_login_newuser_cookie.clickOnManageCookies()[0m
-  [32mWhen [0m[32mUser hit the login link[0m                           [90m# StepDefinition.TheCourierLogin.user_hit_the_login_link()[0m
-  [32mThen [0m[32mLogin page is open[0m                                [90m# StepDefinition.TheCourierLogin.login_page_is_open()[0m
-  [32mAnd [0m[32mClear cookies for the site[0m                         [90m# StepDefinition.TheCourierRegisterUSer.clear_cookies()[0m
-  [32mGiven [0m[32mEnter registered email id [0m[32m[1m"dee2w44w24@gmail.com"[0m [90m# StepDefinition.TheCourierLogin.enter_registered_email_id(java.lang.String)[0m
-  [32mAnd [0m[32mEnter valid password [0m[32m[1m"Asc@5672334"[0m                 [90m# StepDefinition.TheCourierLogin.enter_valid_password(java.lang.String)[0m
-  [32mWhen [0m[32mUser click on login button[0m                        [90m# StepDefinition.TheCourierLogin.user_click_on_login_button()[0m
-  [32mAnd [0m[32mUser click the on manage cookies[0m                   [90m# StepDefinition.Product_login_newuser_cookie.clickOnManageCookies()[0m
-  [32mThen [0m[32mUser should navigates to The courier home page[0m    [90m# StepDefinition.TheCourierRegisterUSer.user_should_navigates_to_the_courier_home_page()[0m
-  [32mAnd [0m[32mLogin Replaced with My Account link[0m                [90m# StepDefinition.TheCourierLogin.login_replaced_with_my_account_link()[0m
-  [32mWhen [0m[32mClick on multiple article on home page[0m            [90m# StepDefinition.Product_login_newuser_cookie.clickonmultipleArticle(io.cucumber.datatable.DataTable)[0m
-  [32mThen [0m[32mVerify the user is not logged out[0m                 [90m# StepDefinition.TheCourierLogin.verify_user_not_loggedout()[0m
+Scenario Outline: New Account Registration with accept all cookie with add block on [90m# src/test/feature/Product_login_newuser_cookie_addBlock.feature:25[0m
+  [32mWhen [0m[32mMake sure Ad blocker extension is installed[0m                                  [90m# StepDefinition.Product_login_newuser_cookie.verifyAddblocker_extension_installed()[0m
+  [32mWhen [0m[32mUser click the i accept button[0m                                               [90m# StepDefinition.TheCourierLogin.u_ser_click_the_i_accept_button()[0m
+  [32mWhen [0m[32mUser hit the login link[0m                                                      [90m# StepDefinition.TheCourierLogin.user_hit_the_login_link()[0m
+  [32mThen [0m[32mLogin page is open[0m                                                           [90m# StepDefinition.TheCourierLogin.login_page_is_open()[0m
+  [32mWhen [0m[32mUser click on Click here to Register link[0m                                    [90m# StepDefinition.TheCourierRegisterUSer.user_click_on_click_here_to_register_link()[0m
+  [32mThen [0m[32mRegister page is open[0m                                                        [90m# StepDefinition.TheCourierRegisterUSer.register_page_is_open()[0m
+  [32mAnd [0m[32mClear cookies for the site[0m                                                    [90m# StepDefinition.TheCourierRegisterUSer.clear_cookies()[0m
+  [32mGiven [0m[32mEnter register email Id [0m[32m[1m"WTHDH@gmail.com"[0m                                   [90m# StepDefinition.TheCourierRegisterUSer.user_enter_email_id(java.lang.String)[0m
+  [32mGiven [0m[32mEnter register password [0m[32m[1m"Asc@5672334"[0m                                       [90m# StepDefinition.TheCourierRegisterUSer.user_enter_password(java.lang.String)[0m
+  [32mWhen [0m[32mUser hit the Create your account button[0m                                      [90m# StepDefinition.TheCourierRegisterUSer.user_hit_the_create_your_account_button()[0m
+  [32mAnd [0m[32mUser click the i accept button[0m                                                [90m# StepDefinition.TheCourierLogin.u_ser_click_the_i_accept_button()[0m
+  [32mThen [0m[32mUser should navigates to The courier home page[0m                               [90m# StepDefinition.TheCourierRegisterUSer.user_should_navigates_to_the_courier_home_page()[0m
+  [32mAnd [0m[32mLogin Replaced with My Account link[0m                                           [90m# StepDefinition.TheCourierLogin.login_replaced_with_my_account_link()[0m
+  [32mWhen [0m[32mClick on multiple article on home page[0m                                       [90m# StepDefinition.Product_login_newuser_cookie.clickonmultipleArticle(io.cucumber.datatable.DataTable)[0m
+  [32mThen [0m[32mVerify the user is not logged out[0m                                            [90m# StepDefinition.TheCourierLogin.verify_user_not_loggedout()[0m
+
+Scenario Outline: New Account Registration with Partial cookies with add block on [90m# src/test/feature/Product_login_newuser_cookie_addBlock.feature:50[0m
+  [32mWhen [0m[32mMake sure Ad blocker extension is installed[0m                                [90m# StepDefinition.Product_login_newuser_cookie.verifyAddblocker_extension_installed()[0m
+  [32mWhen [0m[32mUser click the on manage cookies[0m                                           [90m# StepDefinition.Product_login_newuser_cookie.clickOnManageCookies()[0m
+  [32mWhen [0m[32mUser hit the login link[0m                                                    [90m# StepDefinition.TheCourierLogin.user_hit_the_login_link()[0m
+  [32mThen [0m[32mLogin page is open[0m                                                         [90m# StepDefinition.TheCourierLogin.login_page_is_open()[0m
+  [32mWhen [0m[32mUser click on Click here to Register link[0m                                  [90m# StepDefinition.TheCourierRegisterUSer.user_click_on_click_here_to_register_link()[0m
+  [32mThen [0m[32mRegister page is open[0m                                                      [90m# StepDefinition.TheCourierRegisterUSer.register_page_is_open()[0m
+  [32mAnd [0m[32mClear cookies for the site[0m                                                  [90m# StepDefinition.TheCourierRegisterUSer.clear_cookies()[0m
+  [32mGiven [0m[32mEnter register email Id [0m[32m[1m"TYU12@gmail.com"[0m                                 [90m# StepDefinition.TheCourierRegisterUSer.user_enter_email_id(java.lang.String)[0m
+  [32mGiven [0m[32mEnter register password [0m[32m[1m"Asc@5672334"[0m                                     [90m# StepDefinition.TheCourierRegisterUSer.user_enter_password(java.lang.String)[0m
+  [32mWhen [0m[32mUser hit the Create your account button[0m                                    [90m# StepDefinition.TheCourierRegisterUSer.user_hit_the_create_your_account_button()[0m
+  [32mAnd [0m[32mUser click the on manage cookies[0m                                            [90m# StepDefinition.Product_login_newuser_cookie.clickOnManageCookies()[0m
+  [32mThen [0m[32mUser should navigates to The courier home page[0m                             [90m# StepDefinition.TheCourierRegisterUSer.user_should_navigates_to_the_courier_home_page()[0m
+  [32mAnd [0m[32mLogin Replaced with My Account link[0m                                         [90m# StepDefinition.TheCourierLogin.login_replaced_with_my_account_link()[0m
+  [32mWhen [0m[32mClick on multiple article on home page[0m                                     [90m# StepDefinition.Product_login_newuser_cookie.clickonmultipleArticle(io.cucumber.datatable.DataTable)[0m
+  [32mThen [0m[32mVerify the user is not logged out[0m                                          [90m# StepDefinition.TheCourierLogin.verify_user_not_loggedout()[0m

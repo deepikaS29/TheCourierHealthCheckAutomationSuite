@@ -7,9 +7,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class Product_login_newuser_cookie extends CommonLibrary {
@@ -40,5 +42,23 @@ public class Product_login_newuser_cookie extends CommonLibrary {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//button[text()='Confirm My Choices']")).click();
     }
+
+    @When("Make sure Ad blocker extension is installed")
+    public void verifyAddblocker_extension_installed() throws InterruptedException {
+       Thread.sleep(5000);
+        //AdBlock is now installed!
+        ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+        driver.switchTo().window(tabs2.get(1));
+        String title=driver.getTitle();
+        System.out.println(title);
+        Assert.assertEquals(title,"AdBlock is now installed!");
+        driver.close();
+        driver.switchTo().window(tabs2.get(0));
+        String title1=driver.getTitle();
+        System.out.println(title1);
+
+
+    }
+
 
 }

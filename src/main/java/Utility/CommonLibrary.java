@@ -4,9 +4,12 @@ package Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -36,8 +39,18 @@ public class CommonLibrary {
     public void openBrowser() {
         if(properties.getProperty("browser").equalsIgnoreCase("chrome")){
             //System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\Resources\\Drivers\\chromedriver.exe");
-            WebDriverManager.chromedriver().setup();
-            driver=new ChromeDriver();
+            if(properties.getProperty("extension").equalsIgnoreCase("Yes")){
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions options=new ChromeOptions();
+                options.addExtensions(new File(("C:\\AdBlock best ad blocker.crx")));
+                DesiredCapabilities capabilities=DesiredCapabilities.chrome();
+                capabilities.setCapability(ChromeOptions.CAPABILITY,options);
+                driver=new ChromeDriver(capabilities);
+            }else{
+                WebDriverManager.chromedriver().setup();
+                driver=new ChromeDriver();
+            }
+
         }else if(properties.getProperty("browser").equalsIgnoreCase("firefox")){
             //System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\Resources\\Drivers\\geckodriver.exe");
             WebDriverManager.firefoxdriver().setup();

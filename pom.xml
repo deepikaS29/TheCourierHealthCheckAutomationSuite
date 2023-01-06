@@ -28,7 +28,7 @@
             <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
-                <version>3.11.0</version>
+                <version>3.15.0</version>
                 <executions>
                     <execution>
                         <id>execution</id>
@@ -38,11 +38,16 @@
                         </goals>
                         <configuration>
                             <projectName>TheCourierHealthCheck</projectName>  <!-- Replace with project name -->
-                            <outputDirectory>${project.build.directory}/cucumber-jvm-reports</outputDirectory>
+                            <outputDirectory>${project.build.directory}/cucumber-jvm-report</outputDirectory>
                             <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
                             <!--<skippedFails>true</skippedFails>
                             <enableFlashCharts>true</enableFlashCharts>-->
-                            <buildNumber>1</buildNumber>
+                            <buildNumber>10.2.1</buildNumber>
+                            <!--<outputDirectory>${project.build.directory}/cucumber-jvm-reports</outputDirectory>
+                            <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
+                            <skippedFails>true</skippedFails>
+                            <enableFlashCharts>true</enableFlashCharts>
+                            <buildNumber>1</buildNumber>-->
                         </configuration>
                     </execution>
                 </executions>
@@ -98,7 +103,7 @@
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
-            <version>3.15.0</version>
+            <version>3.11.0</version>
         </dependency>
     </dependencies>
 </project>

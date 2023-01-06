@@ -29,9 +29,10 @@ public class TheCourierLogin extends CommonLibrary {
     }
 
     @When("User hit the login link")
-    public void user_hit_the_login_link() {
+    public void user_hit_the_login_link() throws InterruptedException {
        // driver.findElement(By.xpath("/html/body/header/div[1]/div[2]/div[2]/a")).click();
         loginPage.click_login_lnk();
+        Thread.sleep(2000);
     }
 
     @Then("Login page is open")
@@ -78,8 +79,9 @@ public class TheCourierLogin extends CommonLibrary {
     }
 
     @Then("User  navigates to The courier home page")
-    public void user_navigates_to_the_courier_home_page() {
+    public void user_navigates_to_the_courier_home_page() throws InterruptedException {
         //String expectedURL = "";
+        Thread.sleep(2000);
         String expectedURL =properties.getProperty("homepageURL");
         String actualURl = driver.getCurrentUrl();
         Assert.assertEquals(expectedURL, actualURl);
